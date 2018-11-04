@@ -1,0 +1,38 @@
+{% extends 'front/front_signup_login.html' %}
+
+{% block title %}注册页面{% endblock %}
+
+{% block head %}
+    <script src="{{ url_for('static',filename='front/js/front_signup1.js') }}"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/front_signup_login.css')}}">
+{% endblock %}
+
+{% block pagetitle %}
+    注册页面
+{% endblock %}
+
+{% block signblock %}
+    <div class="form-group">
+        <input type="text" class="form-control" name="telephone" placeholder="请输入手机号码">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="请输入用户名" name="username">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="请输入密码" name="password">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="请输入新密码" name="password2">
+    </div>
+    <div class="form-group">
+       <div class="input-group">
+           <input type="text" class="form-control" name="graph_captcha" placeholder="请输入验证码">
+           <span class="input-group-addon captcha-addon">
+                <img id="captcha-img" class="captcha-img" src="{{ url_for('common.graph_captcha') }}" alt="">
+           </span>
+       </div>
+    </div>
+    <div class="form-group">
+        <button id="submit-btn" class="btn btn-warning btn-block">立即注册</button>
+    </div>
+{% endblock %}

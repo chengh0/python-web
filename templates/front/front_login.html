@@ -1,0 +1,32 @@
+{% extends 'front/front_signup_login.html' %}
+
+{% block title %}登录{% endblock %}
+
+{% block head %}
+     <link rel="stylesheet" href="{{ url_for('static',filename='front/css/front_signup_login.css')}}">
+    <script src="{{ url_for('static',filename='front/js/front_login.js') }}"></script>
+{% endblock %}
+
+{% block pagetitle %}登录{% endblock %}
+
+{% block signblock %}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+        <input type="text" class="form-control" name="telephone" placeholder="请输入手机号码">
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="请输入密码" name="password">
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="remember" value="1">记住我
+        </label>
+    </div>
+    <div class="form-group">
+        <button id="submit-btn" class="btn btn-warning btn-block">立即登录</button>
+    </div>
+    <div class="form-group">
+        <a href="{{ url_for('front.signup') }}" class="singup-link">立即注册</a>
+        <a href="#" class="resetpwd-link" style="float: right">找回密码</a>
+    </div>
+{% endblock %}
